@@ -1,0 +1,9 @@
+File/*/*.pdf
+File/*/*.pptx
+File/*/*.caj
+File/Gromacs源码解析/gromacs-2022.2/
+File/蛋白同源建模/haiku
+File/蛋白同源建模/jax
+File/蛋白同源建模/jaxlib
+File/蛋白口袋预测软件D3Pockets源码及使用/Script/
+File/FEP蛋白和配体小分子的FEP计算流程-NAMD版/FEbuilder/

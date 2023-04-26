@@ -1,0 +1,40 @@
+integrator     = md
+dt              = 0.002
+nsteps          = 10000000  ; 300 nano-second
+constraints     = hbonds
+constraint_algorithm = lincs    ; holonomic constraints
+;lincs_iter      = 1                         ; accuracy of LINCS
+lincs_order     = 4                         ; also related to accuracy
+nstxout         = 20000
+nstvout         = 200000
+nstxtcout       = 20000
+nstlog          = 1000
+nstenergy       = 20000
+continuation    = yes ;estarting after npt
+nstcomm           = 5
+ns_type           = grid
+nstlist         = 5                 ; 10 fs
+rlist           = 1.0           ; short-range neighborlist cutoff (in nm)
+rcoulomb        = 1.0           ; short-range electrostatic cutoff (in nm)
+rvdw            = 1.0           ; short-range van der Waals cutoff (in nm)
+; Electrostatics
+coulombtype     = PME           ; Particle Mesh Ewald for long-range electrostatics
+pme_order       = 4                 ; cubic interpolation
+fourierspacing  = 0.16          ; grid spacing for FFT
+DispCorr          = EnerPres
+Tcoupl              = v-rescale
+tc_grps             = system
+tau_t               =  0.1       
+ref_t               =  300.00   
+Pcoupl              = berendsen
+Pcoupltype          = isotropic
+tau_p               = 2.0
+compressibility     = 4.5e-5
+ref_p               = 1.0
+; Periodic boundary conditions
+pbc                 = xyz               ; 3-D PBC
+; Dispersion correction
+gen_vel             = no
+gen_temp            =  300.00
+gen_seed            =  173529
+

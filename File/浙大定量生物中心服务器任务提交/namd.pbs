@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#PBS -N fep-1
+#PBS -j oe
+#PBS -q sugon_new
+#PBS -l nodes=1:ppn=28
+#PBS -l walltime=2400:00:00
+
+#set Compiler & MPI environment
+source /public/software/profile.d/mpi_openmpi-intel-2.1.2.sh
+source /public/software/profile.d/mathlib_fftw-intelmpi-3.3.7_float.sh
+
+ulimit -s unlimited
+ulimit -l unlimited
+
+#set job input & output variables
+MDIN=fep.soft.conf
+
+cd $PBS_O_WORKDIR
+NP=`cat $PBS_NODEFILE | wc -l`
+#NN=`cat $PBS_NODEFILE | sort | uniq | tee nodes.$$ | wc -l`
+#ulimit -n 2000  # Enable it when more than 1024 CPU cores are requested
+echo "Starting NAMD run at" `date`
+
+#mpirun -machinefile nodefile.$$ -n $NP /public/software/apps/NAMD_2.14_Linux-x86_64-multicore/namd2  $MDIN > $MDIN.log
+mpirun -np   $NP /public/software/apps/NAMD_2.14_Source/Linux-x86_64-g++/namd2  $MDIN > $MDIN.log 
+
+echo "Finished NAMD run at" `date`
+

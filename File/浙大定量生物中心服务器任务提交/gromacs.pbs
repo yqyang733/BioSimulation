@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#PBS -N md
+#PBS -j oe
+#PBS -q sugon
+#PBS -l nodes=1:ppn=28
+#PBS -l walltime=2400:00:00
+
+#set Compiler & MPI environment
+source /public/software/profile.d/compiler_intel-compiler-2017.5.239.sh
+source /public/software/profile.d/mpi_openmpi-intel-2.1.2.sh
+source /public/software/profile.d/mathlib_fftw-intelmpi-3.3.7_float.sh
+source /public/software/profile.d/gromacs-5.1.4.sh
+
+#set job input & output variables
+MDIN=md
+
+cd $PBS_O_WORKDIR
+NP=`cat $PBS_NODEFILE | wc -l`
+NN=`cat $PBS_NODEFILE | sort | uniq | tee nodes.$$ | wc -l`
+#ulimit -n 2000  # Enable it when more than 1024 CPU cores are requested
+cat $PBS_NODEFILE > nodefile.$$
+echo "Starting Gromacs run at" `date`
+
+#mpirun -machinefile nodefile.$$ -n $NP /public/software/apps/gromacs-5.1.4_float/bin/gmx_mpi mdrun  -deffnm $MDIN
+mpirun -machinefile nodefile.$$ -n $NP gmx_mpi mdrun  -deffnm $MDIN
+
+echo "Finished Gromacs run at" `date`
+rm -rf nodefile.$$
+rm -rf nodes.$$
+

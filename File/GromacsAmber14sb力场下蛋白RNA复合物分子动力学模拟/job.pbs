@@ -1,0 +1,70 @@
+#PBS -q md
+#PBS -l nodes=1:ppn=11:gpus=1
+#PBS -S /bin/bash
+#PBS -j oe
+
+date
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+NP=`cat $PBS_NODEFILE | wc -l`
+NP_1=$((NP - 1))
+NP_2=$((NP / 2))
+echo "NP: $NP"
+echo "NP_1: $NP_1"
+echo "NP_2: $NP_2"
+cd $PBS_O_WORKDIR
+echo $PBS_O_WORKDIR
+source /public/software/apps/gmx-2020.6/bin/GMXRC.bash
+export LD_LIBRARY_PATH=/public/software/lib/:$LD_LIBRARY_PATH
+source /public/software/compiler/intel/intel-compiler-2017.5.239/bin/compilervars.sh intel64
+
+#MDRUN="gmx mdrun -ntmpi 1 -ntomp ${NP_1} -nb gpu -pme gpu -bonded gpu -update gpu -gpu_id 0"
+
+#prefix=output/t1
+#$MDRUN -v -noappend -s output/step5_md.tpr -cpi output/t1.cpt -deffnm $prefix -nsteps -1
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+JOBPATH=/public/home/yqyang/COVID-19/NucleicAcid/md_10ns
+mdp_path=${JOBPATH}/mdp
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+CASE=${job_num}
+cd $JOBPATH/$CASE
+##########################################
+mkdir em
+cd em 
+#cp /public/home/jiangyw/data/aptamer/1stRound/filter2_cmp/mdp/em.mdp .
+if [ ! -f em.tpr ]; then
+    gmx_mpi grompp -f ${mdp_path}/em.mdp -c ${JOBPATH}/${CASE}/solv_ions.gro -p ${JOBPATH}/${CASE}/topol.top -r ${JOBPATH}/${CASE}/solv_ions.gro -o em.tpr -maxwarn 2
+fi
+if [ -f em.tpr ] && [ ! -f em.gro ]; then 
+    gmx_mpi mdrun -s em.tpr -deffnm em -ntomp $NP_1 -ntmpi 1 -nb gpu -gpu_id 0
+fi
+###########################
+mkdir ../nvt
+cd ../nvt
+#cp /public/home/jiangyw/data/aptamer/1stRound/filter2_cmp/mdp/nvt.mdp .
+if [ ! -f nvt.tpr ];then
+    gmx_mpi grompp -f ${mdp_path}/nvt.mdp -c ../em/em.gro -p ${JOBPATH}/${CASE}/topol.top -o nvt.tpr -r ../em/em.gro -maxwarn 4
+fi
+if [ -f nvt.tpr ] && [ ! -f nvt.gro ];then
+    gmx_mpi mdrun -s nvt.tpr -deffnm nvt -ntmpi 1 -ntomp $NP_1 -nb gpu -bonded gpu -pme gpu  
+fi
+##########################
+mkdir ../npt
+cd ../npt
+#cp /public/home/jiangyw/data/aptamer/1stRound/filter2_cmp/mdp/npt.mdp .
+if [ ! -f npt.tpr ];then
+    gmx_mpi grompp -f ${mdp_path}/npt.mdp -c ../nvt/nvt.gro -t ../nvt/nvt.cpt -p ${JOBPATH}/${CASE}/topol.top -o npt.tpr -r ../nvt/nvt.gro -maxwarn 4
+fi
+if [ -f npt.tpr ] && [ ! -f npt.gro ];then
+    gmx_mpi mdrun -s npt.tpr -deffnm npt -ntmpi 1 -ntomp $NP_1 -nb gpu -bonded gpu -pme gpu  -gpu_id 0
+fi
+#########################
+mkdir ../prod
+cd ../prod
+#cp /public/home/jiangyw/data/aptamer/1stRound/filter2_cmp/mdp/prod.mdp .
+if [ ! -f prod.tpr ];then
+    gmx_mpi grompp -f ${mdp_path}/prod.mdp -c ../npt/npt.gro -t ../npt/npt.cpt -p ${JOBPATH}/${CASE}/topol.top -o prod.tpr -r ../npt/npt.gro -maxwarn 4
+fi
+if [ -f prod.tpr ] && [ ! -f prod.gro ];then
+    gmx_mpi mdrun -s prod.tpr -deffnm prod -dhdl dhdl -ntmpi 1 -ntomp $NP_1 -nb gpu -bonded gpu -pme gpu  -gpu_id 0
+fi

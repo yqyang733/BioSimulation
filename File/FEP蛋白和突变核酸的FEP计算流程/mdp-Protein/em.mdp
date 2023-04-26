@@ -1,0 +1,48 @@
+; minim.mdp - used as input into grompp to generate em.tpr
+; Parameters describing what to do, when to stop and what to save
+define                  = -DPOSRES ; position restrain
+integrator  = steep         ; Algorithm (steep = steepest descent minimization)
+emtol       = 1000.0        ; Stop minimization when the maximum force < 1000.0 kJ/mol/nm
+emstep      = 0.01          ; Minimization step size
+nsteps      = 50000         ; Maximum number of (minimization) steps to perform
+
+; Bond parameters
+continuation    = no        
+constraint-algorithm = lincs
+constraints     =
+lincs-iter      = 1
+lincs-order     = 4
+
+; Parameters describing how to find the neighbors of each atom and how to calculate the interactions
+nstlist         = 10        ; Frequency to update the neighbor list and long range forces
+cutoff-scheme   = Verlet    ; Buffered neighbor searching
+ns_type         = grid      ; Method to determine neighbor list (simple, grid)
+coulombtype     = PME       ; Treatment of long range electrostatic interactions
+pme-order       = 4
+fourierspacing  = 0.16 
+rcoulomb        = 1.2       ; Short-range electrostatic cut-off
+rvdw            = 1.2       ; Short-range Van der Waals cut-off
+; Periodic boundary conditions
+pbc         = xyz
+
+; Dispersion correction
+DispCorr    = EnerPres
+
+; Free energy control stuff
+free-energy              = yes
+init-lambda-state        =
+vdw-lambdas              =
+coul-lambdas             =
+bonded-lambdas           =
+mass-lambdas             =
+fep-lambdas              =
+couple-lambda0           = vdw-q
+couple-lambda1           = vdw-q
+couple-intramol          = yes
+nstdhdl                  = 100 
+calc-lambda-neighbors    = 1
+sc-alpha                 = 0.3
+sc-power                 = 2
+sc-r-power               = 6
+sc-coul                  = yes
+sc-sigma		 = 0.3
