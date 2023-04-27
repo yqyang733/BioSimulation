@@ -183,4 +183,39 @@ if [ -f prod.tpr ] && [ ! -f prod.gro ];then
 fi
 ```
 
+## PBC处理
+使用常用的四条 gmx pbc 处理命令进行 pbc 处理。
+
 ## MMGB/PBSA
+mmgbsa.in
+```text
+Sample input file for GB calculation
+This input file is meant to show only that gmx_MMPBSA works. Althought,
+we tried to used the input files as recommended in the Amber manual,
+some parameters have been changed to perform more expensive calculations
+in a reasonable amount of time. Feel free to change the parameters
+according to what is better for your system.
+
+&general
+sys_name="Prot-Lig",
+startframe=500,
+endframe=1000,
+interval=10,
+forcefields="leaprc.protein.ff14SB,leaprc.gaff",
+#Interaction Entropy (IE)(https://pubs.acs.org/doi/abs/10.1021/jacs.6b02682) approximation
+interaction_entropy=1, ie_segment=25, temperature=310
+/
+&gb
+igb=5, saltcon=0.150
+/
+&decomp
+idecomp=2, dec_verbose=3,
+# This will print all residues that are less than 10 Å between
+# the receptor and the ligand
+print_res="within 100"
+/
+```
+计算命令：在有有机小分子时，需要额外提供一个mol2文件，这个mol2文件就是前方 antechamber 命令产生的 LIG.mol2 文件。
+```shell
+ gmx_MMPBSA -O -i mmgbsa.in -cs ../pbc/new.pdb -ci ../pbc/index_new.ndx -cg 1 13 -lm LIG.mol2 -ct ../pbc/md_pbcfit_all_new.xtc -o FINAL_RESULTS_MMPBSA.dat -eo FINAL_RESULTS_MMPBSA.csv -do FINAL_DECOMP_MMPBSA.dat -deo FINAL_DECOMP_MMPBSA.csv -nogui
+```
