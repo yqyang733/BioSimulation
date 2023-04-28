@@ -109,6 +109,27 @@ grep -n "test" file|head -1|awk -F ":" '{print $1}'
 ```shell
 :1,.d
 ```
+例4：查看版本信息
+```shell
+:version
+```
+例5：查看行号
+```shell
+:nu
+```
+例6：删除操作
+```shell
+ndd                # n是数字，删除光标所在行向下的n行。20dd：删除光标所在行向下的20行
+d1G                # 删除光标所在行到第一行的所有内容
+dG                 # 删除光标所在行到最后一行的所有内容
+```
+例7：替换操作
+```shell
+:s/foo/bar/g                   # 将当前行中的所有foo替换为bar
+:%s/foo/bar/g                  # 将全文中的所有foo替换为bar
+:5,12s/foo/bar/g               # 将5-12行中的所有foo替换为bar
+:.,+2s/foo/bar/g               # 将当前行与接下来两行中的所有foo替换为bar
+```
 
 ### 1.16 awk
 简介：列处理  

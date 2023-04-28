@@ -38,7 +38,6 @@ toppar_all36_prot_fluoro_alkanes.str
 toppar_all36_prot_heme.str
 toppar_all36_prot_na_combined.str
 toppar_all36_prot_retinol.str
-
 toppar_all36_prot_modify_res.str
 [里面的结构如下所示](分子力场CHARMM力场/toppar_all36_prot_modify_res.cdxml)：
 
