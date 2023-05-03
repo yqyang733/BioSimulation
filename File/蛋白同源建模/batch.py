@@ -1802,7 +1802,7 @@ def main():
     queries, is_complex = get_queries(args.input, args.sort_queries_by)
     model_type = set_model_type(is_complex, args.model_type)
         
-    download_alphafold_params(model_type, data_dir)
+    # download_alphafold_params(model_type, data_dir)
 
     if args.msa_mode != "single_sequence" and not args.templates:
         uses_api = any((query[2] is None for query in queries))

@@ -32,6 +32,42 @@ source ~/.bashrc
 gcc -v
 ```
 
+**安装gcc时遇到ERROR：Building GCC requires GMP 4.2+, MPFR 3.1.0+ and MPC 0.8.0+**
+参考：https://blog.csdn.net/weixin_38184741/article/details/107682135
+需要分别将GMP，MPFR和MPC进行编译安装再安装GCC。
+```shell
+wget ftp://ftp.gnu.org/gnu/gmp/gmp-5.0.1.tar.bz2
+tar -vxf gmp-5.0.1.tar.bz2
+mkdir gmp-5.0.1-installed
+cd gmp-5.0.1
+./configure --prefix=/public/home/yqyang/software/gmp-5.0.1-installed
+make -j10
+make install
+
+wget https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.5.tar.xz
+tar -vxf mpfr-3.1.5.tar.xz
+mkdir mpfr-3.1.5-installed
+cd mpfr-3.1.5
+./configure --prefix=/public/home/yqyang/software/mpfr-3.1.5-installed --with-gmp=/public/home/yqyang/software/gmp-5.0.1-installed
+make -j10
+make install
+
+wget http://www.multiprecision.org/downloads/mpc-0.9.tar.gz
+tar -vxf mpc-0.9.tar.gz
+mkdir mpc-0.9-installed
+cd mpc-0.9
+./configure --prefix=/public/home/yqyang/software/mpc-0.9-installed --with-gmp=/public/home/yqyang/software/gmp-5.0.1-installed --with-mpfr=/public/home/yqyang/software/mpfr-3.1.5-installed
+make -j10
+make install
+
+../configure --disable-checking --enable-languages=c,c++ --disable-multilib --prefix=/public/home/yqyang/software/gcc-11.1.0-installed --enable-threads=posix --with-gmp=/public/home/yqyang/software/gmp-5.0.1-installed --with-mpfr=/public/home/yqyang/software/mpfr-3.1.5-installed --with-mpc=/public/home/yqyang/software/mpc-0.9-installed
+```
+
+**ERROR:cc1：加载共享库时出错：libmpc.so.2：无法打开共享对象文件：没有这样的文件或目录**
+```
+export LD_LIBRARY_PATH="/public/home/yqyang/software/mpc-0.9-installed/lib/":$LD_LIBRARY_PATH
+```
+
 ### 编译安装cmake
 **这里安装最新版本3.23.2的cmake**
 （1）官网上下载安装包：https://cmake.org/download/  

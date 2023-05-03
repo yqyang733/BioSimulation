@@ -7,6 +7,13 @@
 ## 写在前面
 首先使用SMD进行拉动，产生伞形采样所需的多个窗口的初始构象，然后再在各个窗口中基于初始构象进行MD，最后根据各个窗口构象概率分布计算结合能量即伞形采样，算出来的就是PMF。
 
+## 理论
+伞型采样作为一种增强采样算法，被广泛应用于分子动力学模拟的各个领域，例如多肽构象牵引、分子穿越细胞膜、囊泡融合、囊泡细胞膜融合、分子二聚自由能计算、分子溶剂化自由能计算、蛋白质-配体解离牵引、丙氨酸二肽 Phi/Psi 旋转等一系列非常有意思的生物物理现象。部分例子如下图所示：
+![](GromacsSMD和伞形采样及实操教程/GromacsSMD和伞形采样及实操教程_2023-04-30-21-26-36.png)
+
+我们通常认为的无偏分子动力学模拟（unbias molecular dynamics simulation）和物理化学里面描述的孤立体系有所类似，即系统与环境之间无物质交换也无能量的传递。就一般的凝聚态体系来说，倘若确定了体系中的温度，压力和物质的量，则系统的状态就被确定了。常规的无偏动力学模拟由于其本身底层势能函数和模拟时间的限制，对于高能态，过渡态或者稀有构象的采样率很低。因此，伞型采样，副本交换动力学等增强采样方式应运而生。这其实是一种从外部引入能量从而帮助体系越过本身需要花很长时间或者终身无法越过的能垒。其原理简述于下图：
+![](GromacsSMD和伞形采样及实操教程/GromacsSMD和伞形采样及实操教程_2023-04-30-21-27-03.png)
+
 ## SMD
 ### pdb结构预处理
 （1）编好链号
@@ -540,6 +547,7 @@ if __name__ == '__main__':
 1. [GROMACS中文教程之: 伞形采样](https://blog.sciencenet.cn/blog-548663-922986.html?mType=Group)
 2. [伞形采样官方教程](http://www.mdtutorials.com/gmx/umbrella/index.html)
 3. [让指定化学键平行于笛卡尔坐标轴的方法](http://sobereva.com/177)
+4. [GROMACS中伞型采样算法应用详解](http://bbs.keinsci.com/thread-36490-1-1.html)
 
 ## 参考文献
 1. Wriggers W, Schulten K. Investigating a back door mechanism of actin phosphate release by steered molecular dynamics[J]. Proteins: Structure, Function, and Bioinformatics, 1999, 35(2): 262-273. [文献pdf](./GromacsSMD和伞形采样及实操教程/SMD.pdf)

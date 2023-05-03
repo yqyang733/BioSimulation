@@ -45,4 +45,7 @@ $$
 1. Wang L, Friesner RA, Berne BJ. Replica exchange with solute scaling: a more efficient version of replica exchange with solute tempering (REST2). J Phys Chem B. 2011, 115: 9431-9438. doi: 10.1021/jp204407d. [文献pdf](REMD方法REST2/jp204407d.pdf)
 
 ## 实操教程
+
+
+**实操教程参考：**
 1. [REST2](REMD方法REST2/REST2_Tutorial.pdf)
