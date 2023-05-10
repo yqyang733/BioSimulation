@@ -348,6 +348,8 @@ cmd.group(name, members, action)
 （1）将多个object放入一个group中保存。
 ```python
 cmd.group("test","prod2_cluster30 prod2_cluster12")
+cmd.group("all_chains","AAA*")
+cmd.group("all_chains","AAB*")
 ```
 
 ### 30. cmd.ungroup()

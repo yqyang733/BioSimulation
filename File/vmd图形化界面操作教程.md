@@ -5,8 +5,8 @@
 
 ---
 ## Graphics
-### Representations
-**（1）选区语法：**
+### Representations 
+**（1）选区语法：**  
 |名称|语法|
 |:----|:----|
 |蛋白|protein|
@@ -42,8 +42,11 @@ same fragment as resid 35
 same resname as (protein within 5 of nucleic)
 ```
 
-**（2）着色方式**
+**（2）着色方式**  
+当要显示配体以及周围蛋白残基的示意图时，往往需要将蛋白残基以及配体显示成不同的色系以方便区分。可采用下述的解决方案。vmd中的着色方式时根据 coloring Method 定义的。可将其中的Name和Type改成不同的色系，然后再对蛋白残基以及配体分别使用Name和Type着色即可。  
 
+修改Nmae和Type色系的方法：  
+Graphics -> Colors -> Color Definitions 中修改即可。  
 
 ## Mouse
 **快捷键**

@@ -23,6 +23,7 @@ cat ./${i}/do_all_fep.sh >> temp.sh
 **-eq, -lt, -gt, -ne比较的其实都是整数，不能用于浮点数比较。**
 ```shell
 if [ `echo "$a < 1.0" |bc` -eq 1 ];then echo ${line} >> lig_twomore_pdb_1.txt;fi    # 先用逻辑运算输出0或1，然后再与整数比较。
+if [ `echo "$a == 1.0" |bc` -eq 1 ];then echo 111111;fi
 ```
 
 （3）累加运算。

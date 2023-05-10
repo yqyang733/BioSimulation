@@ -27,3 +27,6 @@ run
 ```shell
 cpptraj -p complex_solvated.prmtop -y md.crd -tl
 ```
+
+## 氢键分析
+**参考资料：[Amber动力学模拟后分析：氢键计算](https://mp.weixin.qq.com/s/FrS18gr6xpSlcJ27Z9PEjA)**

@@ -5,6 +5,7 @@
 
 ---
 ## 基本操作
+[PyMOL-GUI](PymolPymol图形界面操作/PyMOL-GUI.docx)
 ### pymol中执行python脚本
 打开Pymol在命令行中输入如下python脚本命令。    
 ```python
@@ -88,3 +89,52 @@ set cartoon_side_chain_helper, on
 set cartoon_side_chain_helper, 1              #on
 ```
 ![](PymolPymol图形界面操作/PymolPymol图形界面操作_2023-03-27-21-50-04.png)
+
+## 一些常用命令
+```python
+fetch 4IE5
+as sticks
+show sticks
+as cartoon
+remove hydrogen
+remove solvent + inorganic
+split_states object
+delete object
+join_states 1j8k, 1j8k_*
+align 1qoh, 2chb
+cealign 1qoh, 2chb
+super 1qoh, 2chb
+rein  # 清空所有，重新开始
+
+util.cbc   # cbc = color by chain
+util.cnc   # cnc = color not carbon
+util.chainbows
+util.cbc
+color black, organic
+util.cnc
+bg_color white
+orient
+```
+
+### Selection
+```python
+select /2chb   # select 2chb   molecular obj
+select /2chb/A   # select 2chb & segi A   molecule semi (sometimes)
+select /2chb//D   # select 2chb and chain D   chain
+select /2chb//D/PRO   # select 2chb & c. D & i. 10   residue
+select /2chb//D/PRO`53   # select 2chb & c. D & i. 53 & r. PRO   residue				
+select /2chb//D/10/ca   # select 2chb & c. D & i. 10 & n. ca   atom
+select ////PRO/ca   # select r. PRO & n. ca   atom
+
+select /2chb//D/10-12/ca   # select 2chb & c. D & i. 10-12 & n. ca   atom range
+select /2chb//D/6+8/c+o   # select 2chb & c. D & i. 10+12 & n. ca   atom range
+
+select 2chb and chain D and resi 10+12 and not name ca
+select 2chb & c. D & i. 10+12 & ! n. n+o+c
+
+select 2chb & c. D & i. 4 | i. 7
+select 2chb & c. D & i. 4 + i. 7	# 这个和上面一个等价，都是 (2chb & c. D & i. 4) + i. 7
+select 2chb & c. D & i. 4+7		# 这个是 2chb & c. D & (i. 4+7)
+```
+
+**示例1：

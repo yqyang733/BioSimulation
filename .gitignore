@@ -3,6 +3,8 @@ File/*/*.pptx
 File/*/*.caj
 File/*/*.tgz
 File/*/*.pdb
+File/*/*.docx
+File/*/*.zip
 File/Gromacs源码解析/gromacs-2022.2/
 File/蛋白同源建模/haiku
 File/蛋白同源建模/jax

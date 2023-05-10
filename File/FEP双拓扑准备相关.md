@@ -5,6 +5,7 @@
 
 ---
 **文献：** [TIES 2.0: A Dual-Topology Open Source Relative Binding Free Energy Builder with Web Portal](FEP双拓扑准备相关/acs.jcim.2c01596.pdf)
+**文献：** [JCTC | TIES 20: Relative Binding Free Energy with a Flexible Superimposition Algorithm and Partial Ring Morphing](FEP双拓扑准备相关/acs.jctc.0c01179.pdf)
 
 **文献：** [Validation of the Alchemical Transfer Method for the Estimation of Relative Binding Affinities of Molecular Series](FEP双拓扑准备相关/acs.jcim.3c00178.pdf)
 

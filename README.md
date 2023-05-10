@@ -134,8 +134,9 @@
 * [vmd|图形化界面操作教程](./File/vmd图形化界面操作教程.md)
 * [vmd|vmd脚本命令](./File/vmdvmd脚本命令.md)
 * [vmd|粗粒化绘图显示插件Bendix](./File/vmd粗粒化绘图显示插件Bendix.md)
+* [vmd|vmd-python](./File/vmdvmd-python.md)
 * [Maestro|图形化界面操作教程](./File/Maestro图形化界面操作教程.md)
-* [Chimera|]
+* [Chimera|图形界面操作](./File/Chimera图形界面操作.md)
 
 ### 2.2 Office
 * [Word|如何随意调整Word中表格的高度？](./File/Word如何随意调整Word中表格的高度.md)
@@ -154,6 +155,7 @@
 * [Moleculekit](./File/Moleculekit.md)
 * [OpenBabel](./File/OpenBabel.md)
 * [Modeller](./File/Modeller.md)
+* [Coot for Cryo-EM](./File/Coot_for_Cryo-EM.md)
 
 ### 2.4 实用软件
 * [写作排版等相关网站](./File/写作排版等相关网站.md)
@@ -208,6 +210,7 @@
 * [打分函数|打分函数发展历史，分类及评价](./File/打分函数打分函数发展历史分类及评价.md)
 
 ### 3.2 分子动力学模拟
+* [从电子密度图到pdb结构建模的protocol](./File/从电子密度图到pdb结构建模的protocol.md)
 * [分子动力学模拟硬件以及算法相关](./File/分子动力学模拟硬件以及算法相关.md)
 * [分子动力学相关硕博学位论文](./File/分子动力学相关硕博学位论文.md)
 * [分子动力学笔记-计算化学公社](./File/分子动力学笔记-计算化学公社.md)
@@ -333,6 +336,13 @@
 * [动力学模拟中的质子化状态等相关问题](./File/动力学模拟中的质子化状态等相关问题.md)
 * [MDFF用于将晶体结构匹配电子密度](./File/vmdMDFF插件用于将晶体结构匹配电子密度.md)
 * [原子电荷计算方法](./File/原子电荷计算方法.md)
+* [pdb文件与cif文件](./File/pdb文件与cif文件.md)
+* [超大蛋白文件处理技巧](./File/超大蛋白文件处理技巧.md)
+* [膜蛋白体系搭建-CHARMMGUI](./File/膜蛋白体系搭建-CHARMMGUI.md)
+* [膜蛋白体系搭建-packmol](./File/膜蛋白体系搭建-packmol.md)
+* [膜蛋白体系搭建-genmixmem](./File/膜蛋白体系搭建-genmixmem.md)
+* [产生力场参数以及Gromacs拓扑文件的工具-Sobtop](./File/产生力场参数以及Gromacs拓扑文件的工具-Sobtop.md)
+* [SuperComplex复杂体系的分子动力学模拟](./File/SuperComplex复杂体系的分子动力学模拟.md)
 
 ### 3.3 其他药物设计技术
 * 根据蛋白多序列比对文件mapping颜色至蛋白三维结构
