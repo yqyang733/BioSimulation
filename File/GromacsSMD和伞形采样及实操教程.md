@@ -121,7 +121,7 @@ if __name__ == '__main__':
 ### gmx准备体系并em,nvt,npt
 ```shell
 gmx pdb2gmx -f $file -o complex.gro -water tip3p -ignh
-gmx editconf -f complex.gro -o newbox.gro -center 3.280 2.181 2.4775 -box 6.560 4.362 12  # 根据之前计算的复合物的长宽高设置盒子大小，最主要的是一定要将拉的那个纬度设置的足够。
+gmx editconf -f complex.gro -o newbox.gro -center 3.280 2.181 2.4775 -box 6.560 4.362 12  # 根据之前计算的复合物的长宽高设置盒子大小，最主要的是一定要将拉的那个纬度设置的足够。根据盒子设置center
 gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro
 gmx grompp -f ../ions.mdp -c solv.gro -p topol.top -o ions.tpr -maxwarn 2
 echo 14|gmx genion -s ions.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -neutral -conc 0.15

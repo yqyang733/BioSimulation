@@ -1,4 +1,4 @@
-# 👏 CADD专栏目录
+# 👏 BioSimulation
 
 ---
 ## 1. 计算机编程
@@ -135,6 +135,7 @@
 * [vmd|vmd脚本命令](./File/vmdvmd脚本命令.md)
 * [vmd|粗粒化绘图显示插件Bendix](./File/vmd粗粒化绘图显示插件Bendix.md)
 * [vmd|vmd-python](./File/vmdvmd-python.md)
+* [vmd|vmd绘图案例集](./File/vmdvmd绘图案例集.md)
 * [Maestro|图形化界面操作教程](./File/Maestro图形化界面操作教程.md)
 * [Chimera|图形界面操作](./File/Chimera图形界面操作.md)
 
@@ -187,6 +188,7 @@
 * [分子对接|使用Schrödinger中的Glide模块进行分子对接](./File/分子对接使用Schrödinger中的Glide模块进行分子对接.md)
 * [Schrödinger|使用Binding Pose Metadynamics模块预测蛋白-配体结合模式](./File/Schrödinger使用Binding_Pose_Metadynamics模块预测蛋白-配体结合模式.md)
 * [Schrödinger|批量生成对接盒子以用于分子靶标预测](./File/Schrödinger批量生成对接盒子以用于分子靶标预测.md)
+* [Schrödinger|SiteMap模块寻找评估蛋白潜在结合位点](./File/SchrödingerSiteMap模块寻找评估蛋白潜在结合位点.md)
 * [文献|分子对接软件Smina的原始文献](./File/文献分子对接软件Smina的原始文献.md)
 * [分子对接|Smina软件全套安装](./File/分子对接Smina软件全套安装.md)
 * [分子对接|Smina分子对接参数详解](./File/分子对接Smina分子对接参数详解.md)
@@ -208,6 +210,9 @@
 * [蛋白多肽对接](./File/蛋白多肽对接.md)
 * [打分函数|考虑蛋白质-配体界面水合位点的机器学习打分函数](./File/打分函数考虑蛋白质-配体界面水合位点的机器学习打分函数.md)
 * [打分函数|打分函数发展历史，分类及评价](./File/打分函数打分函数发展历史分类及评价.md)
+* [打分函数|基于vina和RF的打分函数ΔvinaRF](./File/打分函数基于vina和RF的打分函数ΔvinaRF.md)
+* [同时预测小分子和靶蛋白三维结合构象和结合亲和力的深度表征学习框架-TBind](./File/同时预测小分子和靶蛋白三维结合构象和结合亲和力的深度表征学习框架-TBind.md)
+* [核酸-小分子|预测RNA-配体结合位点的深度学习方法-RLBind](./File/核酸-小分子预测RNA-配体结合位点的深度学习方法-RLBind.md)
 
 ### 3.2 分子动力学模拟
 * [从电子密度图到pdb结构建模的protocol](./File/从电子密度图到pdb结构建模的protocol.md)

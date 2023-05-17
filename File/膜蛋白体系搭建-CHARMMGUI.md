@@ -7,7 +7,6 @@
 ## 一些常用的大膜
 ### 线粒体膜
 配比：POPC:40%   POPE:30%   POPA:5%   POPS:5%   POCL1:20%
-[40nm × 40nm]()
 [10nm × 10nm](yqyang_1@10.77.14.27:/public/home/yqyang_1/work_zju/Others/Membrane/mitochondria/charmm-gui_1010.tgz)
 [20nm × 20nm](yqyang_1@10.77.14.27:/public/home/yqyang_1/work_zju/Others/Membrane/mitochondria/charmm-gui_2020.tgz)
 
@@ -90,3 +89,4 @@ gmx make_ndx -f step5_input.gro -o index.ndx
 （4）进行平衡。
 [mdp](膜蛋白体系搭建-CHARMMGUI/mdp/)
 [job.sh](膜蛋白体系搭建-CHARMMGUI/job.sh)
+（5）将平衡完成的膜的gro文件转换成pdb文件拿去用就行。   
