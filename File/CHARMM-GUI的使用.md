@@ -8,6 +8,8 @@
 账号：yanqyang@zju.edu.cn
 密码：TYUQU#a5NlsC
 
+![](CHARMM-GUI的使用/CHARMM-GUI的使用_2023-05-27-15-33-04.png)
+
 **CHARMM-GUI参考文献：**
 * [CHARMM-GUI: A Web-Based Graphical UserInterface for CHARMM](./CHARMM-GUI的使用/CHARMM‐GUI-A_web‐based_graphical_user_interface_for_CHARMM.pdf)
 

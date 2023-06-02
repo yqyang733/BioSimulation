@@ -35,6 +35,12 @@ python end   # 最后必须输入python end才能运行上述脚本内容。
 （4）Fast-ugly; 点击菜单栏中的Setting->Transparency->Fast-ugly
 ![](PymolPymol图形界面操作/PymolPymol图形界面操作_2022-11-09-18-29-22.png)
 
+```python
+## Cartoon透明度
+set cartoon_transparency, 0.5, <object>  # 50%透明度, <object>是对象的名字
+set cartoon_transparency, 0.5, <sele>  # 50%透明度, <sele>是选择的部分
+```
+
 ## 雾化处理
 PyMOL中支持各种雾化处理，保证depth_cue是开启的。前面清晰，后面雾化可通过滚动鼠标中键进行调节。向上滚动，雾化程度减轻；向上滚动，雾化程度加深。如下图所示：
 ![](PymolPymol图形界面操作/PymolPymol图形界面操作_2022-11-09-18-31-19.png)
@@ -138,3 +144,46 @@ select 2chb & c. D & i. 4+7		# 这个是 2chb & c. D & (i. 4+7)
 ```
 
 **示例1：
+
+## 画图相关精细设置
+### 单双键设置(Valence)
+![](PymolPymol图形界面操作/PymolPymol图形界面操作_2023-05-19-22-35-58.png)  
+![](PymolPymol图形界面操作/PymolPymol图形界面操作_2023-05-19-22-36-15.png)
+**应用示例**  
+```shell
+set valence, 0 # off
+set valence, 1 # on
+
+set valence_mode, 0 # centered
+set valence_mode, 1 # inside
+
+set valence_size, 0.1 # default: 0.06 # range 0 - ~0.5
+```
+
+### Cartoon的相关设置
+**（1）调整Cartoon中loop的粗细**  
+```shell
+set cartoon_loop_radius, 0.35
+```
+
+### Stick的相关设置
+**（1）调整Stick中键的粗细**  
+```shell
+set_bond stick_radius, 0.14, object,
+```
+
+### Sphere的相关设置  
+**（1）调整球的尺寸**  
+```shell
+set sphere_scale, 0.25, sele
+```
+
+### Ball and Stick
+（1）图形界面在 A -> Preset -> ball and stick, 但图形界面无法对单一对象进行个性化操作，则需要命令行对对象进行个性化设置。   
+（2）命令行  
+```shell
+set stick_ball, on  # 开启球棍模型，原子显示为球形，键显示为棍状
+set stick_ball_ratio, 2, object,  # 设置object中球棍的比例
+set_bond stick_radius, 0.14, object,  # 设置object中棍的粗细
+set sphere_scale, 0.25, sele  # 设置选中的原子球的大小
+```

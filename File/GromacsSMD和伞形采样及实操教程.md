@@ -472,9 +472,9 @@ if __name__ == '__main__':
 ```shell
 gmx editconf -f complex.gro -o newbox.gro -center 4 5 5 -box 22 12 11
 gmx solvate -cp newbox.gro -cs spc216.gro -p topol.top -o solv.gro
-gmx grompp -f ions.mdp -c solv.gro -p topol.top -o ions.tpr -maxwarn 2
+gmx grompp -f ~/file/gmx_file/ions.mdp -c solv.gro -p topol.top -o ions.tpr -maxwarn 2
 gmx genion -s ions.tpr -o solv_ions_mg.gro -p topol.top -pname MG -nname CL -conc 0.003
-gmx grompp -f ions.mdp -c solv_ions_mg.gro -p topol.top -o ions_mg.tpr -maxwarn 2
+gmx grompp -f ~/file/gmx_file/ions.mdp -c solv_ions_mg.gro -p topol.top -o ions_mg.tpr -maxwarn 2
 gmx genion -s ions_mg.tpr -o solv_ions.gro -p topol.top -pname NA -nname CL -conc 0.15 -neutral
 ```
 

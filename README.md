@@ -116,6 +116,8 @@
 * [Pymol绘图|Pymol绘制3D旋转动画](./File/Pymol绘图Pymol绘制3D旋转动画.md)
 * [Pymol绘图|分子相似性比较图](./File/Pymol绘图分子相似性比较图.md)
 * [Pymol绘图|蛋白配体互作展示图](./File/Pymol绘图蛋白配体互作展示图.md)
+* [Pymol绘图|ΠΠ堆叠等相互作用绘制](./File/Pymol绘图ΠΠ堆叠等相互作用绘制.md)
+* [Pymol绘图|绘制核酸](./File/Pymol绘图绘制核酸.md)
 * [Pymol|Pymol脚本命令(cmd命令)](./File/PymolPymol脚本命令(cmd命令).md)
 * [Pymol|Pymol脚本书写时开辟内存空间，定义全局变量](./File/PymolPymol脚本书写时开辟内存空间，定义全局变量.md)
 * [Pymol|Pymol选择器语法](./File/PymolPymol选择器语法.md)
@@ -138,6 +140,7 @@
 * [vmd|vmd绘图案例集](./File/vmdvmd绘图案例集.md)
 * [Maestro|图形化界面操作教程](./File/Maestro图形化界面操作教程.md)
 * [Chimera|图形界面操作](./File/Chimera图形界面操作.md)
+* [Chimera|静电势能表面绘制](./File/Chimera静电势能表面绘制.md)
 
 ### 2.2 Office
 * [Word|如何随意调整Word中表格的高度？](./File/Word如何随意调整Word中表格的高度.md)
@@ -334,6 +337,7 @@
 * [FEP双拓扑准备相关](./File/FEP双拓扑准备相关.md)
 * [FEP用于指导药物设计的实例文章集](./File/FEP用于指导药物设计的实例文章集.md)
 * [自由能计算相关文章](./File/自由能计算相关文章.md)
+* [自由能形貌图绘制](./File/自由能形貌图绘制.md)
 * [AmberTools|tleap详解](./File/AmberToolstleap详解.md)
 * [AmberTools|cpptraj详解](./File/AmberToolscpptraj详解.md)
 * [tleap构建MD模拟体系的流程化shell脚本](./File/tleap构建MD模拟体系的流程化shell脚本.md)
@@ -348,9 +352,11 @@
 * [膜蛋白体系搭建-genmixmem](./File/膜蛋白体系搭建-genmixmem.md)
 * [产生力场参数以及Gromacs拓扑文件的工具-Sobtop](./File/产生力场参数以及Gromacs拓扑文件的工具-Sobtop.md)
 * [SuperComplex复杂体系的分子动力学模拟](./File/SuperComplex复杂体系的分子动力学模拟.md)
+* [VMD|氢键分析](./File/VMD氢键分析.md)
+* [学习笔记|BioExcel学习笔记](./File/学习笔记BioExcel学习笔记.md)
 
 ### 3.3 其他药物设计技术
-* 根据蛋白多序列比对文件mapping颜色至蛋白三维结构
+* [根据蛋白多序列比对文件mapping颜色至蛋白三维结构以及蛋白多序列比对](./File/根据蛋白多序列比对文件mapping颜色至蛋白三维结构以及蛋白多序列比对.md)
 * [根据ID批量从pdb晶体库中或alphafold2预测的蛋白结构库中下载蛋白结构](./File/根据ID批量从pdb晶体库中或alphafold2预测的蛋白结构库中下载蛋白结构.md)
 * [多核并行下载PDB数据库中所有的pdb结构](./File/多核并行下载PDB数据库中所有的pdb结构.md)
 * [下载PDBbind数据库](./File/下载PDBbind数据库.md)

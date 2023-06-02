@@ -238,5 +238,6 @@ H:HSD   X:HSE   Z:HSP
 #### 
 
 ## 参考资料
-1. Brooks B R, Bruccoleri R E, Olafson B D, et al. CHARMM: a program for macromolecular energy, minimization, and dynamics calculations. Journal of computational chemistry, 1983, 4: 187-217. [文献pdf](../File/分子力场最早的CHARMM力场/CHARMM.pdf)
+1. Brooks B R, Bruccoleri R E, Olafson B D, et al. CHARMM: a program for macromolecular energy, minimization, and dynamics calculations. Journal of computational chemistry, 1983, 4: 187-217. [文献pdf](分子力场最早的CHARMM力场/CHARMM.pdf)
+2. [BioExcel|CHARMM Force Field Development History, Features, and Implementation in GROMACS](分子力场最早的CHARMM力场/BioExcel_Nov2021_CHARMM_FF.pdf)
 
