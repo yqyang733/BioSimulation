@@ -100,6 +100,7 @@
 ### 1.6 其他
 * [Windows中的环境变量](./File/Windows中的环境变量.md)
 * [PBS作业调度系统使用](./File/PBS作业调度系统使用.md)
+* [SLURM作业调度系统使用](./File/SLURM作业调度系统使用.md)
 * [Windows中的常用内置程序名称](./File/Windows中的常用内置程序名称.md)
 * [Ubuntu的安装与使用](./File/Ubuntu的安装与使用.md)
 * [进程与线程](./File/进程与线程.md)
@@ -312,6 +313,7 @@
 * [分子力场|GROMOS力场](./File/分子力场GROMOS力场.md)
 * [分子力场|OPLS力场](./File/分子力场OPLS力场.md)
 * [分子力场|RNA分子力场](./File/分子力场RNA分子力场.md)
+* [分子力场|含硼小分子化合物Amber力场参数开发](./File/分子力场含硼小分子化合物Amber力场参数开发.md)
 * [MD应用|血脑屏障脂质转运蛋白MFSD2A的结构与机制研究](./File/MD应用血脑屏障脂质转运蛋白MFSD2A的结构与机制研究.md)
 * [MD应用|新冠病毒Spike蛋白与ACE2结合强度的计算模拟](./File/MD应用新冠病毒Spike蛋白与ACE2结合强度的计算模拟.md)
 * [MD应用|量子化学-分子动力学模拟地球上氨基酸的形成](./File/MD应用量子化学-分子动力学模拟地球上氨基酸的形成.md)
@@ -351,6 +353,7 @@
 * [膜蛋白体系搭建-packmol](./File/膜蛋白体系搭建-packmol.md)
 * [膜蛋白体系搭建-genmixmem](./File/膜蛋白体系搭建-genmixmem.md)
 * [产生力场参数以及Gromacs拓扑文件的工具-Sobtop](./File/产生力场参数以及Gromacs拓扑文件的工具-Sobtop.md)
+* [产生力场参数以及Gromacs拓扑文件的工具-SwissParam](./File/产生力场参数以及Gromacs拓扑文件的工具-SwissParam.md)
 * [SuperComplex复杂体系的分子动力学模拟](./File/SuperComplex复杂体系的分子动力学模拟.md)
 * [VMD|氢键分析](./File/VMD氢键分析.md)
 * [学习笔记|BioExcel学习笔记](./File/学习笔记BioExcel学习笔记.md)
@@ -377,6 +380,7 @@
 * [蛋白小分子计算完整流程培训](./File/蛋白小分子计算完整流程培训.md)
 * [环肽设计](./File/环肽设计.md)
 * [一些优秀的技术博客](./File/一些优秀的技术博客.md)
+* [测量孔道的直径变化](./File/测量孔道的直径变化.md)
 
 ---
 ## 4. 人工智能

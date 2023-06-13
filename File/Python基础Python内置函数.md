@@ -280,6 +280,17 @@ print(type(a))
 ---
 ## 9. 变量操作
 ### 9.1 locals()
+Description: The locals() function returns all local variables at the current locations as a dictionary. 
+Example 1:   
+```python
+>>> def runoob(arg):
+...     z = 1
+...     print(locals())
+
+>>> runoob(4)
+{'arg': 4, 'z': 1}
+```
+
 ### 9.2 globals()
 
 ---

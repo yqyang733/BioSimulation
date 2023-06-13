@@ -39,6 +39,8 @@ python end   # 最后必须输入python end才能运行上述脚本内容。
 ## Cartoon透明度
 set cartoon_transparency, 0.5, <object>  # 50%透明度, <object>是对象的名字
 set cartoon_transparency, 0.5, <sele>  # 50%透明度, <sele>是选择的部分
+## Stick透明度
+set stick_transparency, 0.5, <object>  
 ```
 
 ## 雾化处理

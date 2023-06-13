@@ -26,6 +26,10 @@ cmd.remove("resi 3")
 ```python
 cmd.remove("hydrogens")
 ```
+(4) 删除b-factor一列值小于cutoff的所有原子
+```python
+cmd.remove("tmp01 and b < 5")
+```
 
 ---
 ### 2. cmd.h_add()
@@ -194,6 +198,11 @@ cmd.iterate("name ca and model object","lst.append((resi,resn))")     # 因为�
 myspace = {"lst":[]}
 cmd.iterate("name ca and model 1a2b","lst.append((resi,resn))",space = myspace)
 ```
+(3) 使用locals()  
+```python
+exposed = set()
+cmd.iterate(selName, "exposed.add((chain,resv))", space=locals())
+```
 
 ---
 ### 14. cmd.extend()
@@ -230,9 +239,13 @@ cmd.copy_to("test_0001", "lig_3") # 将lig_3复制进入test_0001。
 ### 17. cmd.set()
 简介：更改Pymol的一些设置。
 
-(1) 在保存pdb时去掉其中的TER标记。
+(1) 在保存pdb时去掉其中的TER标记。  
 ```python
 cmd.set('pdb_use_ter_records', 0)
+```
+(2) 将tmpObj对象的"dot_solvent"性质设置为1。  
+```python
+cmd.set("dot_solvent", 1, tmpObj)
 ```
 
 ### 18. cmd.load_traj()
@@ -383,3 +396,27 @@ cmd.get_coords('polymer.protein', 1)
 cmd.id_atom("sele")
 ```
 
+### 34. cmd.get_unused_name()   
+Description: get_unused_name is an API only function that returns a new object name.  
+**示例1：**  
+```python
+PyMOL>tmpObj = cmd.get_unused_name("tmp")
+PyMOL>cmd.create(tmpObj, "(" + "all" + ") and polymer", zoom=0)
+PyMOL>tmpObj = cmd.get_unused_name("tmp")
+PyMOL>cmd.create(tmpObj, "(" + "all" + ") and polymer", zoom=0)
+PyMOL>tmpObj = cmd.get_unused_name("tmp")
+PyMOL>cmd.create(tmpObj, "(" + "all" + ") and polymer", zoom=0)
+```
+![](PymolPymol脚本命令(cmd命令)/PymolPymol脚本命令(cmd命令)_2023-06-08-13-25-51.png)  
+
+### 35. cmd.get_area()  
+Description: calculates the surface area in square Angstroms of the selection given.   
+![](PymolPymol脚本命令(cmd命令)/PymolPymol脚本命令(cmd命令)_2023-06-08-13-39-36.png)  
+
+**示例1：** 计算每个原子的SASA，并将结果存储到b-factor的列中。   
+```python
+PyMOL>tmpObj = cmd.get_unused_name("tmp")
+PyMOL>cmd.create(tmpObj, "(" + "all" + ") and polymer", zoom=0)
+PyMOL>cmd.set("dot_solvent", 1, tmpObj)
+PyMOL>cmd.get_area(selection=tmpObj, load_b=1)
+```
