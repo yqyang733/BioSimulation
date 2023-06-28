@@ -168,7 +168,7 @@ mdp文件参数解析：
 |pull_coord1_type|umbrella|A harmonic potential is applied between the centers of mass of two groups. The harmonic potential allows the pulling force to change according to interaction style. The force will gradually increase until some critical interaction is broken. To generate the initial configuration for umbrella sampling, you can use a different combination of settings (pull_coord1_type and pull_coord1_geometry), but when sampling the actual umbrella (next step), you must use pull_coord1_type = umbrella.|
 |pull-group?-pbcatom|Atom ID|The reference atom, for large pull groups it is important to select a reference atom that is close to the intended center of mass. 用于处理牵引组内周期性边界条件的参考原子，仅当牵引组的直径大于最短box矢量的一半时，此选项才有必要。值为0表示使用中间原子（按数字），这仅对小基团安全。gmx-grompp检查从参考原子（特别选择或不选择）到牵引组中其他原子的最大距离是否过大。|
 |pull-pbc-ref-prev-step-com|yes/no|no：使用参考原子（pull-group1-pbcatom）处理周期性边界条件；yes:使用上一步的COM作为处理周期性边界条件的参考。使用参考原子（pull-group1-pbcatom）初始化使该原子应位于组的中心。如果一个或多个牵引组较大，则使用该方法可能会更好。|
-|pull_coord1_rate|(0)[nm/ps]/[deg/ps]|参考位置或参考角的变化率。|
+|pull_coord1_rate|(0)[nm/ps]/[deg/ps]|参考位置或参考角的变化率。该数值是正的时候代表随着时间变化拉的距离增加，该数值是负的时候代表随着时间变化拉的距离在减小。|
 
 **run**
 ```shell
@@ -272,6 +272,7 @@ for i in `seq 0 99`;do echo umbrella${i}_pullf.xvg >> pullf-files.dat;done
 （3）wham分析
 ```shell
 gmx wham -it tpr-files.dat -if pullf-files.dat -o -hist -unit kCal
+gmx wham -it tpr-files.dat -if prodf-files.dat -o -unit kCal -bsres zerror.xvg -bsprof zerrorprofile.xvg -nBootstrap 20 -bs-method b-hist -temp 303
 ```
 
 ## 完全AmberTools SMD 建模

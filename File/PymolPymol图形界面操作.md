@@ -189,3 +189,11 @@ set stick_ball_ratio, 2, object,  # 设置object中球棍的比例
 set_bond stick_radius, 0.14, object,  # 设置object中棍的粗细
 set sphere_scale, 0.25, sele  # 设置选中的原子球的大小
 ```
+
+### 设置线条格式
+```python
+set dash_gap, 0.5    # 设置线条虚线还是实线，或者虚线间隔。  
+set dash_radius, 0.1   # 设置线条的粗细。
+set dash_color, yellow   # 设置线条颜色。
+set dash_transparency, 0.1   # 设置线条透明度。
+```
